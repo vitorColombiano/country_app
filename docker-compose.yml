@@ -12,9 +12,12 @@ services:
       - NODE_ENV=development
       - PORT=4000
     volumes:
-      - ./countries-backend:/app
+      - ./countries-backend/countries-api:/app
       - /app/node_modules
     command: npm run start:dev
+
+
+
 
   frontend:
     build:
