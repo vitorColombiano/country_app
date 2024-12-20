@@ -1,0 +1,32 @@
+/* styles/CustomStyles.css */
+.country-name {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flag {
+  display: block;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.border-country-list {
+  margin-top: 2rem;
+}
+
+.border-country-item {
+  margin-bottom: 1rem;
+  padding: 8px;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.border-country-item:hover {
+  background-color: #f1f1f1;
+}
+
+.population-chart {
+  margin-top: 2rem;
+}

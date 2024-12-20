@@ -1,13 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { lastValueFrom } from 'rxjs';
+import { AxiosResponse } from 'axios';
 
 @Injectable()
 export class CountriesService {
   constructor(private readonly httpService: HttpService) {}
 
   async getAvailableCountries() {
-    const response = await lastValueFrom(
+    const response: AxiosResponse = await lastValueFrom(
       this.httpService.get('https://date.nager.at/api/v3/AvailableCountries'),
     );
     return response.data;
@@ -15,13 +16,13 @@ export class CountriesService {
 
   async getCountryInfo(code: string) {
     try {
-      const countryInfo = await lastValueFrom(
+      const countryInfo: AxiosResponse = await lastValueFrom(
         this.httpService.get(
           `https://date.nager.at/api/v3/CountryInfo/${code}`,
         ),
       );
 
-      const populationData = await lastValueFrom(
+      const populationData: AxiosResponse = await lastValueFrom(
         this.httpService.post(
           'https://countriesnow.space/api/v0.1/countries/population',
           {
@@ -30,7 +31,7 @@ export class CountriesService {
         ),
       );
 
-      const flagData = await lastValueFrom(
+      const flagData: AxiosResponse = await lastValueFrom(
         this.httpService.post(
           'https://countriesnow.space/api/v0.1/countries/flag/images',
           {
